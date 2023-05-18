@@ -1,1 +1,1 @@
-export CFILE=main.c
+gcc -c $CFILE
