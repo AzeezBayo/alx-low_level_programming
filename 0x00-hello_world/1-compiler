@@ -1,1 +1,1 @@
-gcc -c $CFILE
+gcc -E $CFILE o -o
