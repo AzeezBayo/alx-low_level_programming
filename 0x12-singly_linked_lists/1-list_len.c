@@ -1,6 +1,9 @@
 #include "lists.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
+
 /**
  * list_len - returns then number of elements in a list.
  * @h: singly linked list.
