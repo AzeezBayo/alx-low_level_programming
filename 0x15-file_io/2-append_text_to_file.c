@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
-* create_file - Create a function tha creates a file.
-* @filename: file to create.
-* @text_content: info to write into the file.
-* Return: 1 on success, -1 on failure
+* append_text_to_file - appends text at the end of a file.
+* @filename: file to be used.
+* @text_content: content to be appended into the file.
+* Return: when successful return 1, return -1 on failure
 */
 
-int create_file(const char *filename, char *text_content)
+int append_text_to_file(const char *filename, char *text_content)
 {
 	int i, file_open, file_write;
 
@@ -16,7 +16,7 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	}
 
-	file_open = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
+	file_open = open(filename, O_WRONLY | O_APPEND);
 
 	if (file_open == -1)
 	{
@@ -24,8 +24,8 @@ int create_file(const char *filename, char *text_content)
 	}
 
 	if (text_content != NULL)
-
 	{
+
 		for (i = 0; text_content[i]; i++)
 			;
 
@@ -36,6 +36,7 @@ int create_file(const char *filename, char *text_content)
 			close(file_open);
 			return (-1);
 		}
+
 		else
 		{
 			close(file_open);
@@ -43,11 +44,8 @@ int create_file(const char *filename, char *text_content)
 		}
 	}
 
-	else
-	{
-		close(file_open);
-		return (1);
-	}
+	close(file_open);
+	return (1);
 
 }
 
